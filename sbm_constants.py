@@ -58,11 +58,11 @@ PRESETS = {
     "Parameter unbekannt (EM)": {"q": 2, "n": DEFAULT_N, "c": DEFAULT_C, "lam": 1.5, "seed": DEFAULT_SEED, "mode": MODE_LEARNED},
 }
 PRESET_HELP = {
-    "Knapp über der Schwelle (Voreinstellung)": "Zwei Verbünde, Signalstärke 1,5 (das 1,5-fache der Schwelle): das Blockmodell findet die Gruppen zu rund der Hälfte, die Modularität kaum.",
+    "Knapp über der Schwelle (Voreinstellung)": "Zwei Verbünde, Signalstärke 1,5 (das 1,5-fache der Schwelle): das Blockmodell erreicht NMI rund 0,6, die Modularität rund 0,1.",
     "Reiner Zufall": "Kein Verbund im Netz (Signalstärke 0): trotzdem findet die Modularität Gemeinschaften mit hoher Modularität, das Blockmodell findet nichts.",
-    "Knapp unter der Schwelle": "Signalstärke 0,8: unterhalb der Erkennbarkeitsgrenze ist die Einteilung für kein Verfahren zu finden.",
-    "Starke Verbünde": "Signalstärke 2,4 (das Maximum bei diesem mittleren Grad): hier finden beide Verfahren die Gruppen, die Modularität aber oft in mehr Teile zerlegt.",
-    "Lieferstufen (disassortativ)": "Zulieferer arbeiten mit Herstellern, nicht untereinander: die Kanten liegen zwischen den Gruppen. Die Modularität sieht das nie als Gemeinschaft.",
-    "Drei Verbünde": "Drei Gruppen, Signalstärke 2,0: die Schwelle gilt mit dem Faktor q, die Modularität liegt weit zurück.",
+    "Knapp unter der Schwelle": "Signalstärke 0,8: unterhalb der Erkennbarkeitsgrenze ist nach der Theorie (dünner Grenzfall) keine Einteilung zu finden.",
+    "Starke Verbünde": "Signalstärke 2,4 (das Maximum bei diesem mittleren Grad): das Blockmodell findet die Gruppen fast vollständig (NMI 0,99), die Modularität teilweise (NMI 0,67) und zerlegt sie oft in mehr Teile.",
+    "Lieferstufen (disassortativ)": "Zulieferer arbeiten mit Herstellern, nicht untereinander: die Kanten liegen zwischen den Gruppen. Die Modularität sieht das in den gemessenen Fällen nicht als Gemeinschaft.",
+    "Drei Verbünde": "Drei Gruppen, Signalstärke 2,0: die Schwelle gilt mit dem Faktor q, die Modularität liegt zurück (README: bei n = 600 NMI 0,60 gegen 0,92 für BP).",
     "Parameter unbekannt (EM)": "Wie die Voreinstellung, aber das Blockmodell lernt seine Parameter selbst (EM). Funktioniert bei Verbünden mit klarem Signal, nicht bei Lieferstufen und nicht knapp über der Schwelle.",
 }

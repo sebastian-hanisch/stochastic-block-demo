@@ -77,7 +77,7 @@ def verdict_main(a: Analysis) -> tuple[str, str]:
     found = (f"Leiden zerlegt das Netz in {a.k_found} Gemeinschaften mit Modularität {de(a.q_found, 2)} (die geplante Einteilung hat {de(a.q_planted, 2)}), "
              f"Überlappung mit den geplanten Gruppen NMI {de(a.nmi_leiden, 2)}; das {name} erreicht NMI {de(a.nmi_infer, 2)}.")
     if not above_threshold(lam):
-        return "warning", (f"Die Signalstärke λ = {de(lam, 2)} liegt **unter der Erkennbarkeitsgrenze 1**: für kein Verfahren gibt es hier eine Einteilung zu finden. " + found +
+        return "warning", (f"Die Signalstärke λ = {de(lam, 2)} liegt **unter der Erkennbarkeitsgrenze 1**: nach der Theorie (dünner Grenzfall, gleich große Gruppen) ist hier keine Einteilung zu finden. " + found +
                            " Die Gemeinschaften, die Leiden meldet, sind Zufall.")
     if a.nmi_infer >= 0.5 and a.nmi_infer > a.nmi_leiden + 0.1:
         return "success", (f"Die Signalstärke λ = {de(lam, 2)} liegt über der Grenze, und das {name} findet die geplanten Gruppen (NMI {de(a.nmi_infer, 2)}), Leiden deutlich schlechter (NMI {de(a.nmi_leiden, 2)}): "

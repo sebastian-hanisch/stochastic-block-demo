@@ -112,7 +112,7 @@ st.markdown(
     """
 **Zweites Stück** der Reihe „Netzwerkanalyse“, im Struktur-Arm die **Fortsetzung der [Leiden-Demo](https://sebastianhanisch-leiden-demo.streamlit.app/)**: Leiden optimiert die Modularität und liefert immer eine Zerlegung, aber ob dahinter eine Gemeinschaft steckt, sagt die Zahl nicht. Hier gibt es ein Netz von Subunternehmern und Lieferanten mit **geplanter** Einteilung (die Wahrheit ist bekannt), und ein **Blockmodell** (SBM, Belief Propagation nach Decelle, Krzakala, Moore und Zdeborová) tritt gegen die Modularität an. Anders als die Fall-Demos zeigt diese Demo **ein** Verfahren an einem wachsenden Beispiel.
 
-Die Kernfrage: **Wann ist eine Gemeinschaft real, und wann zeigt ein Verfahren nur, was Zufall ohnehin hergibt?** Der Regler **Signalstärke λ** misst, wie deutlich die Gruppen sind, in Vielfachen der Erkennbarkeitsgrenze: unter 1 gibt es für kein Verfahren etwas zu finden.
+Die Kernfrage: **Wann ist eine Gemeinschaft real, und wann zeigt ein Verfahren nur, was Zufall ohnehin hergibt?** Der Regler **Signalstärke λ** misst, wie deutlich die Gruppen sind, in Vielfachen der Erkennbarkeitsgrenze: unter 1 ist (im dünnen Grenzfall mit gleich großen, symmetrischen Gruppen) keine Einteilung zu finden.
 
 Weiter unten: fünf Experimente (**🔬**), der Abschnitt **🚧 Wo die Annahmen enden** und der Expander **📐 Mathematische Formulierung**.
 """
@@ -123,7 +123,7 @@ with st.expander("So funktioniert die Blockmodell-Inferenz", expanded=True):
         """
 1. **Geplante Einteilung:** *q* gleich große Gruppen; zwei Betriebe sind mit Wahrscheinlichkeit *c*<sub>in</sub>/*n* verbunden, wenn sie in derselben Gruppe liegen, sonst mit *c*<sub>out</sub>/*n*. Der mittlere Grad *c* bleibt fest, die **Signalstärke** λ = (*c*<sub>in</sub> − *c*<sub>out</sub>) / (*q*·√*c*) verschiebt Kanten in die Gruppen (λ > 0, Verbünde) oder zwischen die Gruppen (λ < 0, **Lieferstufen**).
 2. **Modularität (Leiden):** sucht die Zerlegung mit der größten Modularität, ohne eine Wahrheit zu kennen; sie meldet immer Gemeinschaften, auch im Zufallsnetz.
-3. **Blockmodell mit bekannten Parametern (BP):** Belief Propagation schätzt für jeden Knoten die Wahrscheinlichkeit jeder Gruppe aus den Nachrichten seiner Nachbarn. Ist das Signal unter der Grenze, bleiben alle Wahrscheinlichkeiten gleich: das Verfahren **meldet nichts** statt etwas zu erfinden.
+3. **Blockmodell mit bekannten Parametern (BP):** Belief Propagation schätzt für jeden Knoten die Wahrscheinlichkeit jeder Gruppe aus den Nachrichten seiner Nachbarn. Ist das Signal unter der Grenze, liefert das Verfahren **kein Ergebnis über Zufall** (NMI nahe 0), statt etwas zu erfinden; das EM mit gelernten Parametern kann dagegen Struktur erfinden.
 4. **Blockmodell mit gelernten Parametern (EM):** die Parameter sind unbekannt und werden abwechselnd mit der Einteilung geschätzt. Der Start ist assortativ (Kanten innerhalb der Gruppen).
 5. **Überlappung:** die normalisierte gegenseitige Information (**NMI**) zwischen gefundener und geplanter Einteilung, 0 = Raten, 1 = identisch.
         """,
